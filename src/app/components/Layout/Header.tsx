@@ -3,8 +3,7 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { useAuth } from "@clerk/nextjs";
-import DropDown, { IACTIONTYPE } from "../ui/DropDown";
+import DropDown from "../ui/DropDown";
 import Icons from "../ui/Icons";
 import Button from "../ui/Button";
 import { usePathname } from "next/navigation";
@@ -15,7 +14,7 @@ const Header = () => {
   const isActive = (path: string) => pathname.startsWith(path);
 
   const [isOpen, setIsOpen] = useState(false);
-  const { isSignedIn, signOut } = useAuth();
+  const isSignedIn = false;
 
   return (
     <nav className="bg-white shadow-md">
@@ -67,7 +66,9 @@ const Header = () => {
         <div className="hidden md:block justify-center items-center">
           <Button className="mx-2 relative">
             <Icons type="bell" />
-            <span className="absolute top-0 right-0 p-1 bg-red-400 rounded-full w-[22px] h-[22px] flex items-center justify-center text-white">2</span>
+            <span className="absolute top-0 right-0 p-1 bg-red-400 rounded-full w-[22px] h-[22px] flex items-center justify-center text-white">
+              2
+            </span>
           </Button>
           {(!isSignedIn && (
             <DropDown
@@ -87,18 +88,13 @@ const Header = () => {
             >
               <div className="flex justify-between items-center text-sm gap-2 text-gray-800">
                 <Icons type="user"></Icons>
-                <div className="text-sm">Pioneer Enterprises | <span className="font-bold mx-1">Buyer</span></div>
+                <div className="text-sm">
+                  Pioneer Enterprises |{" "}
+                  <span className="font-bold mx-1">Buyer</span>
+                </div>
               </div>
             </DropDown>
           )) || <Button theme="primary">Login</Button>}
-
-          {/* {!isSignedIn && (
-            <button className="px-4 py-2 text-white bg-blue-600 rounded-lg shadow hover:bg-blue-700 focus:ring-2 focus:ring-blue-500 focus:ring-offset-1">
-              <SignInButton />
-            </button>
-          )} */}
-
-          {isSignedIn && <User />}
         </div>
 
         {/* Mobile Menu Icon */}
