@@ -65,8 +65,9 @@ const Header = () => {
 
         {/* Login Button */}
         <div className="hidden md:block justify-center items-center">
-          <Button className="mx-2">
+          <Button className="mx-2 relative">
             <Icons type="bell" />
+            <span className="absolute top-0 right-0 p-1 bg-red-400 rounded-full w-[22px] h-[22px] flex items-center justify-center text-white">2</span>
           </Button>
           {(!isSignedIn && (
             <DropDown
@@ -86,7 +87,7 @@ const Header = () => {
             >
               <div className="flex justify-between items-center text-sm gap-2 text-gray-800">
                 <Icons type="user"></Icons>
-                <div className="text-sm">Ishwar Katwe</div>
+                <div className="text-sm">Pioneer Enterprises | <span className="font-bold mx-1">Buyer</span></div>
               </div>
             </DropDown>
           )) || <Button theme="primary">Login</Button>}

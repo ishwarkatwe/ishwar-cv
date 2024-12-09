@@ -7,6 +7,7 @@ import Panel from "../components/ui/Panel";
 import NotificationCard from "../components/ui/NotificationCard";
 import ActionCard from "../components/ui/ActionCard";
 import HeatMap from "../components/ui/HeadMap";
+import Image from "next/image";
 
 function Dashboard() {
   const cards = [
@@ -40,26 +41,6 @@ function Dashboard() {
     },
   ];
 
-  const xCategories = [
-    "01-Dec",
-    "02-Dec",
-    "03-Dec",
-    "04-Dec",
-    "05-Dec",
-    "06-Dec",
-    "07-Dec",
-  ]; // Example due dates
-  const yCategories = ["Week 1", "Week 2", "Week 3", "Week 4"]; // Weeks of the month
-
-  const data = [
-    [0, 0, 5], // (X: 01-Dec, Y: Week 1, Value: 5 invoices)
-    [1, 0, 10],
-    [2, 1, 8],
-    [3, 1, 15],
-    [4, 2, 12],
-    [5, 3, 20],
-    [6, 3, 25],
-  ];
 
   return (
     <div className="container mx-auto p-4">
@@ -123,7 +104,8 @@ function Dashboard() {
             onViewMore={() => console.log()}
             h={"h-[40vh]"}
           >
-            <HeatMap></HeatMap>
+            {/* <HeatMap></HeatMap> */}
+            <Image src={"/heatmap.png"} alt="" width={800} height={400} />
           </Panel>
         </div>
         <div className="w-[40%]">
