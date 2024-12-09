@@ -52,7 +52,7 @@ function DropDown({
         onClick={() => setDropdownOpen(!dropdownOpen)}
       >
         {children}
-        {(icon && (
+        {(!icon && (
           <svg
             className="mr-1 size-5 text-gray-400"
             viewBox="0 0 20 20"
@@ -66,7 +66,8 @@ function DropDown({
               clipRule="evenodd"
             />
           </svg>
-        )) || <Icons type="dots" size={5} />}
+        )) ||
+          (icon && <Icons type={icon} size={5} />)}
       </Button>
 
       {dropdownOpen && (

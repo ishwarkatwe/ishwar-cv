@@ -30,11 +30,17 @@ export const formatCurrency = (amount: number): string => {
 
 interface DataGridProps {
   checkbox?: boolean;
+  onBulkSelected?: Function;
   data: any[];
   columns: ICOLUMN[];
 }
 
-const DataGrid: React.FC<DataGridProps> = ({ checkbox, data, columns }) => {
+const DataGrid: React.FC<DataGridProps> = ({
+  checkbox,
+  onBulkSelected,
+  data,
+  columns,
+}) => {
   const [search, setSearch] = useState("");
   const [limit, setLimit] = useState(20);
   const [page, setPage] = useState(1);
@@ -69,8 +75,7 @@ const DataGrid: React.FC<DataGridProps> = ({ checkbox, data, columns }) => {
   const handleClearFilters = () => {};
 
   return (
-    <div className="px-4 py-2">
-      {/* Search */}
+    <div className="px-4">
       <div className="flex justify-between items-center mb-4">
         <FilterDropdown
           fields={[
@@ -132,6 +137,7 @@ const DataGrid: React.FC<DataGridProps> = ({ checkbox, data, columns }) => {
                     <input
                       type="checkbox"
                       className="h-4 w-4 focus:ring-primary-900 ring:ring-primary-800"
+                      onClick={() => onBulkSelected && onBulkSelected(row)}
                     />
                   </td>
                 )}

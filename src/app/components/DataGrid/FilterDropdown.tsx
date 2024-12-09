@@ -123,7 +123,13 @@ const FilterDropdown: React.FC<Props> = ({ fields, onApply }) => {
           </button>
           <div className="flex justify-between mt-4">
             <Button onClick={() => onClear()}>Clear</Button>
-            <Button theme="primary" onClick={() => onApply(filters)}>
+            <Button
+              theme="primary"
+              onClick={() => {
+                onApply(filters);
+                setOpen(false);
+              }}
+            >
               Apply
             </Button>
           </div>

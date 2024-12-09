@@ -1,16 +1,12 @@
 "use client";
 
 import React from "react";
-import Chart from "../components/ui/Chart";
-import Button from "../components/ui/Button";
 import Icons from "../components/ui/Icons";
 import Card from "../components/ui/Card";
-import { theme } from "highcharts";
 import Panel from "../components/ui/Panel";
 import NotificationCard from "../components/ui/NotificationCard";
 import ActionCard from "../components/ui/ActionCard";
-import Heatmap from "../components/ui/HeadMap";
-import HeatmapChart from "../components/ui/HeadMap";
+import HeatMap from "../components/ui/HeadMap";
 
 function Dashboard() {
   const cards = [
@@ -68,7 +64,7 @@ function Dashboard() {
   return (
     <div className="container mx-auto p-4">
       <div className="flex items-stretch gap-2">
-        <div className="w-[60%] gap-2 flex flex-wrap">
+        <div className="w-[60%] gap-2 flex flex-wrap self-center">
           {cards.map((c) => (
             <div className="lg:w-[49%] md:w-[100%]" key={c.label}>
               <Card
@@ -122,15 +118,19 @@ function Dashboard() {
 
       <div className="flex items-stretch gap-4 my-4">
         <div className="w-[60%] flex">
-          <Panel title="Day on Day Chart" onViewMore={() => console.log()} h={""}>
-            <></>
+          <Panel
+            title="Dec 2024, Invoices due this month"
+            onViewMore={() => console.log()}
+            h={"h-[40vh]"}
+          >
+            <HeatMap></HeatMap>
           </Panel>
         </div>
         <div className="w-[40%]">
           <Panel
             title="Action Items"
             onViewMore={() => console.log()}
-            h={"h-[35vh]"}
+            h={"h-[40vh]"}
           >
             {[
               {

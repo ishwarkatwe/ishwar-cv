@@ -1,7 +1,12 @@
 import React from "react";
+import BreadCrumb from "../components/ui/BreadCrumb";
 
 function Page() {
-  return <div>page</div>;
+  return (
+    <>
+      <BreadCrumb page={"User Preference"} />
+    </>
+  );
 }
 
 export default Page;

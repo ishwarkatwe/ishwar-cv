@@ -35,9 +35,9 @@ export default function RootLayout({
   return (
     <ClerkProvider>
       <html lang="en">
-        <body>
+        <body className="flex flex-col">
           <Header />
-          <main className="container mx-auto">{children}</main>
+          <main className="container mx-auto flex-auto">{children}</main>
           <Footer />
         </body>
       </html>
