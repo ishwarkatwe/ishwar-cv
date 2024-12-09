@@ -1,0 +1,214 @@
+{
+  "records": [
+    {
+      "fileRef": "MDS001",
+      "fileName": "DiscountRates_Q1.pdf",
+      "amount": "1,200.00",
+      "uploadDate": "2024-12-01",
+      "uploadBy": "John Doe",
+      "status": "Pending Approval",
+      "actionedBy": null,
+      "actionedDate": null
+    },
+    {
+      "fileRef": "MDS002",
+      "fileName": "CampaignBudget_November.xlsx",
+      "amount": "3,450.75",
+      "uploadDate": "2024-11-15",
+      "uploadBy": "Jane Smith",
+      "status": "Approved",
+      "actionedBy": "Michael Johnson",
+      "actionedDate": "2024-11-18"
+    },
+    {
+      "fileRef": "MDS003",
+      "fileName": "CustomerIncentives_2024.docx",
+      "amount": "980.50",
+      "uploadDate": "2024-11-22",
+      "uploadBy": "Emily Brown",
+      "status": "Rejected",
+      "actionedBy": "Anna Taylor",
+      "actionedDate": "2024-11-23"
+    },
+    {
+      "fileRef": "MDS004",
+      "fileName": "HolidayDiscounts.csv",
+      "amount": "5,600.00",
+      "uploadDate": "2024-12-02",
+      "uploadBy": "Chris Wilson",
+      "status": "Pending Approval",
+      "actionedBy": null,
+      "actionedDate": null
+    },
+    {
+      "fileRef": "MDS005",
+      "fileName": "EndYearPromotions.pdf",
+      "amount": "7,125.25",
+      "uploadDate": "2024-12-03",
+      "uploadBy": "Patricia Green",
+      "status": "Approved",
+      "actionedBy": "David Lee",
+      "actionedDate": "2024-12-04"
+    },
+    {
+      "fileRef": "MDS006",
+      "fileName": "FlashSale_December.pptx",
+      "amount": "2,300.00",
+      "uploadDate": "2024-11-30",
+      "uploadBy": "Laura White",
+      "status": "Rejected",
+      "actionedBy": "John Doe",
+      "actionedDate": "2024-12-01"
+    },
+    {
+      "fileRef": "MDS007",
+      "fileName": "BlackFridayStats.pdf",
+      "amount": "1,780.75",
+      "uploadDate": "2024-11-14",
+      "uploadBy": "Emma Watson",
+      "status": "Pending Approval",
+      "actionedBy": null,
+      "actionedDate": null
+    },
+    {
+      "fileRef": "MDS008",
+      "fileName": "DigitalMarketingBudget.xlsx",
+      "amount": "9,150.00",
+      "uploadDate": "2024-10-25",
+      "uploadBy": "Michael Johnson",
+      "status": "Approved",
+      "actionedBy": "Chris Wilson",
+      "actionedDate": "2024-10-26"
+    },
+    {
+      "fileRef": "MDS009",
+      "fileName": "LoyaltyProgram.csv",
+      "amount": "4,520.50",
+      "uploadDate": "2024-11-18",
+      "uploadBy": "Anna Taylor",
+      "status": "Rejected",
+      "actionedBy": "Emily Brown",
+      "actionedDate": "2024-11-19"
+    },
+    {
+      "fileRef": "MDS010",
+      "fileName": "AffiliateStats.docx",
+      "amount": "1,120.00",
+      "uploadDate": "2024-12-01",
+      "uploadBy": "Patricia Green",
+      "status": "Pending Approval",
+      "actionedBy": null,
+      "actionedDate": null
+    },
+    {
+      "fileRef": "MDS011",
+      "fileName": "SeasonalOffers.pptx",
+      "amount": "6,300.75",
+      "uploadDate": "2024-11-20",
+      "uploadBy": "John Doe",
+      "status": "Approved",
+      "actionedBy": "Laura White",
+      "actionedDate": "2024-11-22"
+    },
+    {
+      "fileRef": "MDS012",
+      "fileName": "WeeklyReports.pdf",
+      "amount": "3,400.50",
+      "uploadDate": "2024-10-15",
+      "uploadBy": "Jane Smith",
+      "status": "Rejected",
+      "actionedBy": "Emma Watson",
+      "actionedDate": "2024-10-16"
+    },
+    {
+      "fileRef": "MDS013",
+      "fileName": "SurveyResults.csv",
+      "amount": "870.00",
+      "uploadDate": "2024-12-02",
+      "uploadBy": "Chris Wilson",
+      "status": "Pending Approval",
+      "actionedBy": null,
+      "actionedDate": null
+    },
+    {
+      "fileRef": "MDS014",
+      "fileName": "ROIAnalysis_November.pdf",
+      "amount": "11,250.00",
+      "uploadDate": "2024-11-28",
+      "uploadBy": "David Lee",
+      "status": "Approved",
+      "actionedBy": "Michael Johnson",
+      "actionedDate": "2024-11-30"
+    },
+    {
+      "fileRef": "MDS015",
+      "fileName": "ContentCalendar_2024.xlsx",
+      "amount": "2,700.75",
+      "uploadDate": "2024-12-03",
+      "uploadBy": "Emily Brown",
+      "status": "Pending Approval",
+      "actionedBy": null,
+      "actionedDate": null
+    },
+    {
+      "fileRef": "MDS016",
+      "fileName": "HolidayCampaigns_Analysis.pdf",
+      "amount": "8,100.50",
+      "uploadDate": "2024-11-01",
+      "uploadBy": "Laura White",
+      "status": "Rejected",
+      "actionedBy": "Jane Smith",
+      "actionedDate": "2024-11-03"
+    },
+    {
+      "fileRef": "MDS017",
+      "fileName": "DiscountStrategy.pptx",
+      "amount": "5,250.00",
+      "uploadDate": "2024-11-05",
+      "uploadBy": "John Doe",
+      "status": "Approved",
+      "actionedBy": "David Lee",
+      "actionedDate": "2024-11-07"
+    },
+    {
+      "fileRef": "MDS018",
+      "fileName": "SocialMediaMetrics.docx",
+      "amount": "1,400.00",
+      "uploadDate": "2024-12-01",
+      "uploadBy": "Anna Taylor",
+      "status": "Pending Approval",
+      "actionedBy": null,
+      "actionedDate": null
+    },
+    {
+      "fileRef": "MDS019",
+      "fileName": "AnalyticsOverview_Q4.pdf",
+      "amount": "12,500.00",
+      "uploadDate": "2024-10-29",
+      "uploadBy": "Patricia Green",
+      "status": "Rejected",
+      "actionedBy": "Chris Wilson",
+      "actionedDate": "2024-10-31"
+    },
+    {
+      "fileRef": "MDS020",
+      "fileName": "PromotionsSummary.csv",
+      "amount": "7,800.75",
+      "uploadDate": "2024-11-30",
+      "uploadBy": "Emma Watson",
+      "status": "Approved",
+      "actionedBy": "Laura White",
+      "actionedDate": "2024-12-01"
+    },
+    {
+      "fileRef": "MDS021",
+      "fileName": "DiscountOffers_May.xlsx",
+      "amount": "15,000.00",
+      "uploadDate": "2024-12-01",
+      "uploadBy": "Anna Dee",
+      "status": "Approved",
+      "actionedBy": "Smith",
+      "actionedDate": "2024-12-05"
+    }
+  ]
+}
