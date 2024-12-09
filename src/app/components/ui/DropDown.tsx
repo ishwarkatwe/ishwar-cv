@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { ReactNode, useEffect, useRef, useState } from "react";
 import Button from "./Button";
 import Icons from "./Icons";
 
@@ -22,7 +22,7 @@ function DropDown({
   icon?: string;
   options: IOPTIONS[];
   onSelect?: Function;
-  children: any;
+  children: ReactNode;
 }) {
   const dropdownRef = useRef<HTMLDivElement>(null);
   const [dropdownOpen, setDropdownOpen] = useState(false);

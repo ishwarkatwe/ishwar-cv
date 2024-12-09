@@ -1,4 +1,4 @@
-import React from "react";
+import React, { ReactNode } from "react";
 import Button from "./Button";
 
 function Panel({
@@ -10,7 +10,7 @@ function Panel({
   title: string;
   h: string;
   onViewMore: Function;
-  children: any;
+  children: ReactNode;
 }) {
   return (
     <div className="flex-auto border border-gray-300 rounded-lg">
