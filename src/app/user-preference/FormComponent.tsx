@@ -11,6 +11,18 @@ const FormComponent = () => {
     screenTimeout: "",
   });
 
+  const arr = [
+    "Total Invoices Uploaded till date",
+    "Total Invoice Value",
+    "Total Invoices Discounted",
+    "Value of Total Invoices Discounted",
+    "Invoice Pending for Discounting",
+    "Value of Invoices Pending for Discounting",
+    "Total Invoices Paid on Due Date",
+    "Value of Total Invoies Paid on Due Date",
+    "Total Profit Made Till Date",
+  ];
+
   const handleChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     const { name, value } = e.target;
     setFormData((prev) => ({
@@ -30,7 +42,7 @@ const FormComponent = () => {
       <div className="mb-4 flex gap-6 items-center">
         <label
           htmlFor="companyName"
-          className="text-gray-700 font-bold mb-2 w-[10rem]"
+          className="text-gray-700 mb-2 w-[10rem]"
         >
           Company Name
         </label>
@@ -53,7 +65,7 @@ const FormComponent = () => {
       <div className="mb-4 flex gap-6 items-center">
         <label
           htmlFor="amountFormat"
-          className="text-gray-700 font-bold mb-2 w-[10rem]"
+          className="text-gray-700 mb-2 w-[10rem]"
         >
           Amount Format
         </label>
@@ -75,7 +87,7 @@ const FormComponent = () => {
       <div className="mb-4 flex gap-6 items-center">
         <label
           htmlFor="dateFormat"
-          className="text-gray-700 font-bold mb-2 w-[10rem]"
+          className="text-gray-700 mb-2 w-[10rem]"
         >
           Date Format
         </label>
@@ -97,7 +109,7 @@ const FormComponent = () => {
       <div className="mb-4 flex gap-6 items-center">
         <label
           htmlFor="screenTimeout"
-            className="text-gray-700 font-bold mb-2 w-[10rem]"
+          className="text-gray-700 mb-2 w-[10rem]"
         >
           Screen Timeout
         </label>
@@ -113,6 +125,24 @@ const FormComponent = () => {
           <option value="5 mins">5 mins</option>
           <option value="10 mins">10 mins</option>
         </select>
+      </div>
+
+      <div className="mb-4 flex gap-6 items-center">
+        <label
+          htmlFor="screenTimeout"
+          className="text-gray-700 mb-2 w-[10rem]"
+        >
+          Dashboard Widgets
+        </label>
+
+        <div>
+          {arr.map((item, i) => (
+            <div key={i} className="flex gap-2 my-1">
+              <input type="checkbox" />
+              <p className="text-sm">{item}</p>
+            </div>
+          ))}
+        </div>
       </div>
 
       {/* Submit Button */}

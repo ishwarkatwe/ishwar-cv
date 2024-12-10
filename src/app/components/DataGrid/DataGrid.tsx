@@ -167,7 +167,7 @@ const DataGrid: React.FC<DataGridProps> = ({
                       ].includes(col.type) == false && (
                         <Link
                           className="text-primary-800 hover:text-primary-900"
-                          href={""}
+                          href={`/invoice/${encodeURIComponent(row[col.key])}`}
                         >
                           {row[col.key] || empty}
                         </Link>

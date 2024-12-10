@@ -8,7 +8,7 @@ function NotificationCard(props: any) {
         status === "approve" ? "border-l-green-600" : "border-l-red-600"
       }`}
     >
-      <div className="flex flex-col">
+      <div className="flex flex-col justify-between py-2">
         <div className="text-sm text-gray-800">{title}</div>
         <div className="text-xs">{desc}</div>
       </div>

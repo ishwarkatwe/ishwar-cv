@@ -31,23 +31,23 @@ const Header = () => {
           {[
             {
               label: "Dashboard",
-              value: "dashboard",
+              value: "/dashboard",
             },
             {
               label: "Upload Payments",
-              value: "upload",
+              value: "/upload",
             },
             {
               label: "Payment & Settlements",
-              value: "payment-settlements",
+              value: "/payment-settlements",
             },
             {
               label: "Analytics",
-              value: "analytics",
+              value: "/analytics",
             },
             {
               label: "User Preference",
-              value: "user-preference",
+              value: "/user-preference",
             },
           ].map((o, index) => (
             <Link
@@ -65,7 +65,7 @@ const Header = () => {
         {/* Login Button */}
         <div className="hidden md:block justify-center items-center">
           <Button className="mx-2 relative">
-            <Icons type="bell" />
+            <Icons type="bell" size={5} />
             <span className="absolute top-0 right-0 p-1 bg-red-400 rounded-full w-[22px] h-[22px] flex items-center justify-center text-white">
               2
             </span>
@@ -87,7 +87,7 @@ const Header = () => {
               onSelect={(e: any) => console.log(e)}
             >
               <div className="flex justify-between items-center text-sm gap-2 text-gray-800">
-                <Icons type="user"></Icons>
+                <Icons type="user" size={5}></Icons>
                 <div className="text-sm">
                   Pioneer Enterprises |{" "}
                   <span className="font-bold mx-1">Buyer</span>

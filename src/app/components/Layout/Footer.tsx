@@ -5,7 +5,7 @@ import React from "react";
 function footer() {
   return (
     <footer
-      className="mx-auto mt-4 container border-t"
+      className="mx-auto mt-4 px-4 container border-t"
       aria-labelledby="footer-heading"
     >
       <div className="flex items-centers justify-between border-t border-gray-100 py-6">

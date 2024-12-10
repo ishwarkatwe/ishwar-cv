@@ -23,9 +23,9 @@ function Upload() {
     { label: "CCY", key: "Ccy" },
     { label: "Amount", key: "Amount", type: COLUMN_TYPE.CURRENCY },
     { label: "Due Date", key: "Due Date", type: COLUMN_TYPE.DATE },
-    { label: "Discounting", key: "Discounting" },
+    { label: "Discount Status", key: "Discounting" },
     {
-      label: "Status",
+      label: "Payment Status",
       key: "Status",
       type: COLUMN_TYPE.BADGE,
       formatter: (row: any) => {

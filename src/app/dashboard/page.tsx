@@ -6,41 +6,39 @@ import Card from "../components/ui/Card";
 import Panel from "../components/ui/Panel";
 import NotificationCard from "../components/ui/NotificationCard";
 import ActionCard from "../components/ui/ActionCard";
-import HeatMap from "../components/ui/HeadMap";
 import Image from "next/image";
 
 function Dashboard() {
   const cards = [
     {
-      label: "Invoice",
+      label: "Total Invoices Uploaded till date",
       count: "13,212",
       stats: "-12%",
       icon: "bills",
       theme: "bg-primary-800",
     },
     {
-      label: "Amount",
+      label: "Total Invoice Value",
       count: "$10,112",
       stats: "+3%",
       icon: "price",
       theme: "bg-orange-400",
     },
     {
-      label: "Approve",
-      count: "222",
+      label: "Total Invoices Discounted",
+      count: "911",
       stats: "+6%",
       icon: "check",
       theme: "bg-green-400",
     },
     {
-      label: "Reject",
-      count: "12",
+      label: "Value of Total Invoices Discounted",
+      count: "$8,911",
       stats: "-1%",
-      icon: "x-mark",
-      theme: "bg-red-400",
+      icon: "total",
+      theme: "bg-yellow-400",
     },
   ];
-
 
   return (
     <div className="container mx-auto p-4">
@@ -54,7 +52,7 @@ function Dashboard() {
                 stats={c.stats}
                 theme={c.theme}
               >
-                <Icons type={c.icon} />
+                <Icons type={c.icon} size={5} />
               </Card>
             </div>
           ))}
