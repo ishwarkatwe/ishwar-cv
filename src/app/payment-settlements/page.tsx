@@ -8,7 +8,7 @@ import DataGrid, {
 } from "../components/DataGrid/DataGrid";
 import BreadCrumb from "../components/ui/BreadCrumb";
 
-export const columns: ICOLUMN[] = [
+ const columns: ICOLUMN[] = [
   { label: "Buyer", key: "Buyer" },
   { label: "Seller", key: "Seller" },
   {

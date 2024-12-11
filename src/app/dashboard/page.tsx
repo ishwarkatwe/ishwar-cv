@@ -6,7 +6,9 @@ import Card from "../components/ui/Card";
 import Panel from "../components/ui/Panel";
 import NotificationCard from "../components/ui/NotificationCard";
 import ActionCard from "../components/ui/ActionCard";
-import Image from "next/image";
+import dynamic from "next/dynamic";
+const HeatmapCalendar = dynamic(() => import("../components/ui/HeatmapCalendar"), { ssr: false });
+
 
 function Dashboard() {
   const cards = [
@@ -81,11 +83,27 @@ function Dashboard() {
                 status: "approve",
               },
               {
-                title: "HomeBasics",
+                title: "CementMix",
                 desc: "Rejected for Dynamic Discounting",
                 date: "22-12-2014 01:11",
                 invoiceId: "#INV1132",
-                price: "$13,111",
+                price: "$13,221",
+                status: "reject",
+              },
+              {
+                title: "PaperStack",
+                desc: "Rejected for Dynamic Discounting",
+                date: "22-12-2014 01:11",
+                invoiceId: "#INV1132",
+                price: "$11,111",
+                status: "reject",
+              },
+              {
+                title: "TechWave Inc",
+                desc: "Rejected for Dynamic Discounting",
+                date: "22-12-2014 01:11",
+                invoiceId: "#INV1132",
+                price: "$111",
                 status: "reject",
               },
             ].map((d, i) => (
@@ -103,7 +121,8 @@ function Dashboard() {
             h={"h-[40vh]"}
           >
             {/* <HeatMap></HeatMap> */}
-            <Image src={"/heatmap.png"} alt="" width={800} height={400} />
+            <HeatmapCalendar></HeatmapCalendar>
+            {/* <Image src={"/heatmap.png"} alt="" width={800} height={400} /> */}
           </Panel>
         </div>
         <div className="w-[40%]">
@@ -131,6 +150,22 @@ function Dashboard() {
               },
               {
                 title: "MegaFoods",
+                desc: "Rejected for Dynamic Discounting",
+                date: "22-12-2014 01:11",
+                invoiceId: "#INV1132",
+                price: "$13,111",
+                status: "reject",
+              },
+              {
+                title: "Top Shoppers",
+                desc: "Rejected for Dynamic Discounting",
+                date: "22-12-2014 01:11",
+                invoiceId: "#INV1132",
+                price: "$13,111",
+                status: "reject",
+              },
+              {
+                title: "Info Tech Pvt Ltd",
                 desc: "Rejected for Dynamic Discounting",
                 date: "22-12-2014 01:11",
                 invoiceId: "#INV1132",
