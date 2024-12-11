@@ -9,35 +9,36 @@ import HighchartsReact from "highcharts-react-official";
 import Highcharts from "highcharts";
 import data from "./../payment-settlements/data.json";
 import { parseISO, format } from "date-fns";
+import { redirect } from "next/navigation";
 
 function Page() {
   const cards = [
     {
-      label: "Invoice",
-      count: "13,212",
+      label: "Invoice Pending for Discounting",
+      count: "112",
       stats: "-12%",
       icon: "bills",
       theme: "bg-primary-800",
     },
     {
-      label: "Amount",
+      label: "Value of Invoices Pending for Discounting",
       count: "$10,112",
       stats: "+3%",
       icon: "price",
       theme: "bg-orange-400",
     },
     {
-      label: "Approve",
-      count: "222",
+      label: "Total Invoices Paid on Due Date",
+      count: "12",
       stats: "+6%",
       icon: "check",
       theme: "bg-green-400",
     },
     {
-      label: "Reject",
-      count: "12",
+      label: "Value of Total Invoies Paid on Due Date",
+      count: "$12,311",
       stats: "-1%",
-      icon: "x-mark",
+      icon: "total",
       theme: "bg-red-400",
     },
   ];
@@ -201,7 +202,9 @@ function Page() {
       headerFormat: "<b>{series.name}</b><br>",
       pointFormat: "{point.x:%e. %b}: {point.y:.2f} m",
     },
-
+    credits: {
+      enabled: false,
+    },
     plotOptions: {
       series: {
         marker: {
@@ -398,6 +401,9 @@ function Page() {
       pointFormat:
         "<b>{point.name}</b>: ${point.y:.2f} ({point.percentage:.1f}%)",
     },
+    credits: {
+      enabled: false,
+    },
     plotOptions: {
       pie: {
         allowPointSelect: true,
@@ -466,10 +472,23 @@ function Page() {
     ],
   };
 
-  console.log(seriesData);
   return (
     <>
-      <BreadCrumb page={"Analytics"} />
+      <nav className="flex items-center justify-between">
+        <BreadCrumb page={"Analytics"} />
+        <div className="px-4 flex gap-1 items-center mx-1">
+          <span>From : </span>{" "}
+          <input
+            type="date"
+            className="bg-gray-50 border border-gray-300 text-gray-700 py-1 px-3 rounded "
+          />
+          <span>To : </span>{" "}
+          <input
+            type="date"
+            className="bg-gray-50 border border-gray-300 text-gray-700 py-1 px-3 rounded "
+          />
+        </div>
+      </nav>
 
       <div className="px-4">
         <div className="flex gap-4 items-center justify-center">
@@ -481,7 +500,7 @@ function Page() {
                 stats={c.stats}
                 theme={c.theme}
               >
-                <Icons type={c.icon} size={5}/>
+                <Icons type={c.icon} size={5} />
               </Card>
             </div>
           ))}
@@ -491,7 +510,7 @@ function Page() {
           <div className="flex-auto">
             <Panel
               title="Total Invoice Amount by Buyer"
-              onViewMore={() => console.log()}
+              onViewMore={() => redirect("/chart/detail")}
               h={"h-[100%]"}
             >
               <HighchartsReact
@@ -503,7 +522,7 @@ function Page() {
           <div className="w-[30%]">
             <Panel
               title="Payment Status Distribution"
-              onViewMore={() => console.log()}
+              onViewMore={() => redirect("/chart/detail")}
               h={"h-[100%]"}
             >
               <HighchartsReact
@@ -518,7 +537,7 @@ function Page() {
           <div className="flex-auto">
             <Panel
               title="Invoice Amount vs Discounting Over Time"
-              onViewMore={() => console.log()}
+              onViewMore={() => redirect("/chart/detail")}
               h={"h-[100%]"}
             >
               <HighchartsReact highcharts={Highcharts} options={spline} />
@@ -527,7 +546,7 @@ function Page() {
           <div className="w-[30%]">
             <Panel
               title="Discount Earnings Distribution"
-              onViewMore={() => console.log()}
+              onViewMore={() => redirect("/chart/detail")}
               h={"h-[100%]"}
             >
               <HighchartsReact highcharts={Highcharts} options={chartOptions} />

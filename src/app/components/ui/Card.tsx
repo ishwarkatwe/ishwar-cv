@@ -13,7 +13,12 @@ function Card(props: any) {
       <div className="flex-1 border border-gray-300 rounded-lg p-4 hover:bg-slate-50">
         <div className="flex items-center">
           <div className="flex flex-col flex-1">
-            <h3 className="text-sm font-normal">{props.title}</h3>
+            <h3
+              className="text-sm font-normal line-clamp-1"
+              title={props.title}
+            >
+              {props.title}
+            </h3>
             <label className="text-2xl my-2 font-medium">{props.count}</label>
             <p>
               <span

@@ -7,7 +7,7 @@ interface InvoiceDetailsProps {
   params: { invoiceId: string };
 }
 
-async function page({ params }: InvoiceDetailsProps) {
+async function page({ params }: any) {
   const { invoiceId } = await params;
 
   if (invoiceId.indexOf("INV") !== -1) {

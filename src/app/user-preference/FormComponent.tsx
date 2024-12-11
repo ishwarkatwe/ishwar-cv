@@ -147,7 +147,7 @@ const FormComponent = () => {
 
       {/* Submit Button */}
       <div className="flex justify-end">
-        <Button theme="primary">Save</Button>
+        <Button theme="primary">Save Changes</Button>
       </div>
     </form>
   );
