@@ -481,7 +481,7 @@ function Page() {
                 stats={c.stats}
                 theme={c.theme}
               >
-                <Icons type={c.icon} />
+                <Icons type={c.icon} size={5}/>
               </Card>
             </div>
           ))}
