@@ -8,7 +8,7 @@ function BreadCrumb({ page }: { page: string }) {
       <li className="inline-flex items-center">
         <Link
           className="flex items-center text-sm text-gray-500 hover:text-primary-600 focus:outline-none focus:text-blue-600"
-          href={"/"}
+          href={"/dashboard"}
         >
           Dashboard
         </Link>
