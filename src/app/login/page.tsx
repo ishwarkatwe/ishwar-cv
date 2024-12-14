@@ -2,7 +2,7 @@ import React from 'react'
 
 function Login() {
   return (
-    <div>Login</div>
+    <div className='w-[vh] h-[vh] bg-slate-50'>Login</div>
   )
 }
 
