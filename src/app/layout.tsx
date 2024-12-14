@@ -28,7 +28,7 @@ export default function RootLayout({
     <html lang="en">
       <body className="flex flex-col">
         <Wrapper>
-          <main className="container mx-auto flex-auto">{children}</main>
+          <main>{children}</main>
         </Wrapper>
       </body>
     </html>

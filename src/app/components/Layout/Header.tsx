@@ -91,7 +91,7 @@ const Header = () => {
                   actionType: "button",
                 },
               ]}
-              onSelect={(e: any) => console.log(e)}
+              onSelect={(e: any) => (e === "logout" ? redirect("/") : "")}
             >
               <div className="flex justify-between items-center text-sm gap-2 text-gray-800">
                 <Icons type="building" size={5}></Icons>
