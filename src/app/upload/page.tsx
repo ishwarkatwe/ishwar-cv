@@ -33,15 +33,15 @@ function Upload() {
       type: COLUMN_TYPE.BADGE,
       formatter: (row: any) => {
         return row["status"] === "Approved" ? (
-          <span className="bg-green-700 text-white px-2 py-1 rounded-md text-xs">
+          <span className="bg-green-400 text-white px-2 py-1 rounded-md text-xs w-[80px] inline-block text-center">
             Approved
           </span>
         ) : row["status"] === "Rejected" ? (
-          <span className="bg-red-500 text-white px-2 py-1 rounded-md text-xs">
+          <span className="bg-red-500 text-white px-2 py-1 rounded-md text-xs w-[80px] inline-block text-center">
             Rejected
           </span>
         ) : (
-          <span className="bg-blue-500 text-white px-2 py-1 rounded-md text-xs">
+          <span className="bg-blue-400 text-white px-2 py-1 rounded-md text-xs w-[80px] inline-block text-center">
             Pending
           </span>
         );

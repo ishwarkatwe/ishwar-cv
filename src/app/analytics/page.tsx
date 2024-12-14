@@ -486,11 +486,13 @@ function Page() {
           <input
             type="date"
             className="bg-gray-50 border border-gray-300 text-gray-700 py-1 px-3 rounded "
+            defaultValue={startDayOfMonth}
           />
           <span>To : </span>{" "}
           <input
             type="date"
             className="bg-gray-50 border border-gray-300 text-gray-700 py-1 px-3 rounded "
+            defaultValue={endDayOfMonth}
           />
         </div>
       </nav>

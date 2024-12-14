@@ -16,7 +16,7 @@ export default function Wrapper({ children }: { children: React.ReactNode }) {
   return (
     <div>
       {showHeader && <Header />}
-      <main className={showHeader ? "container mx-auto flex-auto" : ""}>
+      <main className={showHeader ? "container mx-auto flex-auto min-h-[70vh]" : ""}>
         {children}
       </main>
       {showHeader && <Footer />}

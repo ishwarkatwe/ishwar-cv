@@ -225,7 +225,7 @@ const DataGrid: React.FC<DataGridProps> = ({
                         COLUMN_TYPE.CURRENCY,
                         COLUMN_TYPE.DATE,
                       ].includes(col.type) == false && (
-                        <div className="text-right">
+                        <div className="text-left">
                           {(col.formatter && col.formatter(row)) || empty}
                         </div>
                       )}

@@ -62,7 +62,7 @@ export default function LoginPage() {
 
   return (
     <div className="flex h-screen w-screen">
-      <div className="h-screen bg-blue-50 w-[50%] flex flex-col justify-center items-center">
+      <div className="h-screen w-[50%] flex flex-col justify-center items-center bg-gradient-to-br from-sky-100 to-blue-200">
         <h1 className=" font-sans text-lg italic my-8">
           " {messages[currentSlide]} "
         </h1>
@@ -149,7 +149,10 @@ export default function LoginPage() {
               <p className="text-center text-sm py-2">
                 Enter the OTP sent to de****@gmail.com
               </p>
-              <div className="flex gap-3 p-2 px-8">
+              <span className="text-center text-xs pb-2">
+                OTP will be valid for next 10 mins
+              </span>
+              <div className="flex gap-3 py-2">
                 <input
                   className="w-full p-2 border rounded h-[2.5rem]"
                   type="text"
@@ -167,7 +170,7 @@ export default function LoginPage() {
                   type="text"
                 />
               </div>
-              <p className="text-sm py-2">
+              <div className="text-sm py-2">
                 Resend OTP ?
                 <span
                   className="text-primary-800 ml-1"
@@ -176,7 +179,6 @@ export default function LoginPage() {
                 >
                   Click here
                 </span>
-                
                 <p className="py-2">
                   Back to Login ?
                   <span
@@ -194,7 +196,7 @@ export default function LoginPage() {
                 >
                   Verify
                 </Button>
-              </p>
+              </div>
             </>
           )}
 
@@ -207,7 +209,10 @@ export default function LoginPage() {
               <Button className="w-full my-2 bg-red-400 text-white border-red-400 hover:bg-red-700">
                 Google
               </Button>
-              <Button className="w-full my-2 bg-blue-400 text-white border-blue-400 hover:bg-blue-600">
+              <Button
+                theme={"primary"}
+                className="w-full my-2 bg-blue-500 text-white border-blue-400 hover:bg-blue-600"
+              >
                 Facebook
               </Button>
             </div>
