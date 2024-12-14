@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import * as DATA from "./data.json";
 import DataGrid, { COLUMN_TYPE } from "../components/DataGrid/DataGrid";
 import Button from "../components/ui/Button";
@@ -12,8 +12,15 @@ function Upload() {
   const [bulkSelected, setBulkSelected] = useState(false);
   const [selectedRecords, setSelectedRecords] = useState<Array<Object>>([]);
   const [total, setTotal] = useState(0);
+  const [data, setData] = useState(DATA.records);
 
-  const data = DATA.records;
+  useEffect(() => {
+    if (upload) {
+      const filted = data.filter((r) => r.status === "Pending Approval");
+      setData(filted);
+    }
+  }, [upload]);
+
   const columns = [
     { label: "File Ref", key: "fileRef", type: COLUMN_TYPE.LINK },
     { label: "File Name", key: "fileName" },
@@ -98,14 +105,14 @@ function Upload() {
           </div>
         )}
       </div>
-      {upload && (
-        <DataGrid
-          checkbox={true}
-          onBulkSelected={(row: any) => onSelect(row)}
-          data={data}
-          columns={columns}
-        />
-      )}
+
+      <DataGrid
+        checkbox={true}
+        onBulkSelected={(row: any) => onSelect(row)}
+        data={data}
+        columns={columns}
+        sortBy="fileRef"
+      />
     </>
   );
 }

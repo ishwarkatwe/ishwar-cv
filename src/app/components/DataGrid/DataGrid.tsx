@@ -3,6 +3,7 @@ import Image from "next/image";
 import React, { useState, useMemo } from "react";
 import Button from "../ui/Button";
 import FilterDropdown from "./FilterDropdown";
+import Icons from "../ui/Icons";
 
 export enum COLUMN_TYPE {
   DATE = "date",
@@ -33,6 +34,9 @@ interface DataGridProps {
   onBulkSelected?: Function;
   data: any[];
   columns: ICOLUMN[];
+  sortBy?: string;
+  sortOrder?: string;
+  onSortToggle?: Function;
 }
 
 const DataGrid: React.FC<DataGridProps> = ({
@@ -40,11 +44,15 @@ const DataGrid: React.FC<DataGridProps> = ({
   onBulkSelected,
   data,
   columns,
+  sortBy,
+  sortOrder,
+  onSortToggle,
 }) => {
   const [search, setSearch] = useState("");
   const [limit, setLimit] = useState(20);
   const [page, setPage] = useState(1);
-  const [sort, setSort] = useState("Due Date");
+  const [sort, setSort] = useState(sortBy || "Due Date");
+  const [order, setOrder] = useState(sortOrder || "asc");
   const empty = "- - - -";
 
   const filteredData = useMemo(() => {
@@ -116,17 +124,43 @@ const DataGrid: React.FC<DataGridProps> = ({
                       : "text-left")
                   }
                 >
-                  {col.label}
-                  {col.label === sort && (
-                    <span className="ml-2">
-                      {col.label === sort ? "▲" : "▼"}
-                    </span>
-                  )}
+                  <div
+                    className="flex justify-between items-center"
+                    role="button"
+                    onClick={() => {
+                      const newOrder = order == "asc" ? "desc" : "asc";
+                      onSortToggle &&
+                        onSortToggle({
+                          sortBy: col.key,
+                          sortOrder: newOrder,
+                        });
+
+                      setSort(col.key);
+                      setOrder(newOrder);
+                    }}
+                  >
+                    {col.label}
+                    {col.key === sort && (
+                      <span className="ml-2">
+                        <Icons
+                          type={order === "asc" ? "up" : "down"}
+                          size={4}
+                        />
+                      </span>
+                    )}
+                  </div>
                 </th>
               ))}
             </tr>
           </thead>
           <tbody>
+            {paginatedData.length === 0 && (
+              <tr className="text-center">
+                <td className="text-center text-sm" colSpan={columns.length}>
+                  No Records Found
+                </td>
+              </tr>
+            )}
             {paginatedData.map((row, idx) => (
               <tr key={idx} className="hover:bg-gray-50">
                 {checkbox && (
@@ -136,8 +170,9 @@ const DataGrid: React.FC<DataGridProps> = ({
                   >
                     <input
                       type="checkbox"
-                      className="h-4 w-4 focus:ring-primary-900 ring:ring-primary-800"
+                      className="h-4 w-4 focus:ring-primary-900 ring:ring-primary-800 disabled:cursor-not-allowed"
                       onClick={() => onBulkSelected && onBulkSelected(row)}
+                      disabled={row.status !== "Pending Approval"}
                     />
                   </td>
                 )}

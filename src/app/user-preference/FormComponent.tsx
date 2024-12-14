@@ -40,10 +40,7 @@ const FormComponent = () => {
     <form onSubmit={handleSubmit} className="rounded">
       {/* Company Name */}
       <div className="mb-4 flex gap-6 items-center">
-        <label
-          htmlFor="companyName"
-          className="text-gray-700 mb-2 w-[10rem]"
-        >
+        <label htmlFor="companyName" className="text-gray-700 mb-2 w-[10rem]">
           Company Name
         </label>
         <select
@@ -63,10 +60,7 @@ const FormComponent = () => {
       {/* Amount Format */}
 
       <div className="mb-4 flex gap-6 items-center">
-        <label
-          htmlFor="amountFormat"
-          className="text-gray-700 mb-2 w-[10rem]"
-        >
+        <label htmlFor="amountFormat" className="text-gray-700 mb-2 w-[10rem]">
           Amount Format
         </label>
         <select
@@ -85,10 +79,7 @@ const FormComponent = () => {
 
       {/* Date Format */}
       <div className="mb-4 flex gap-6 items-center">
-        <label
-          htmlFor="dateFormat"
-          className="text-gray-700 mb-2 w-[10rem]"
-        >
+        <label htmlFor="dateFormat" className="text-gray-700 mb-2 w-[10rem]">
           Date Format
         </label>
         <select
@@ -107,10 +98,7 @@ const FormComponent = () => {
 
       {/* Screen Timeout */}
       <div className="mb-4 flex gap-6 items-center">
-        <label
-          htmlFor="screenTimeout"
-          className="text-gray-700 mb-2 w-[10rem]"
-        >
+        <label htmlFor="screenTimeout" className="text-gray-700 mb-2 w-[10rem]">
           Screen Timeout
         </label>
         <select
@@ -128,10 +116,7 @@ const FormComponent = () => {
       </div>
 
       <div className="mb-4 flex gap-6 items-center">
-        <label
-          htmlFor="screenTimeout"
-          className="text-gray-700 mb-2 w-[10rem]"
-        >
+        <label htmlFor="screenTimeout" className="text-gray-700 mb-2 w-[10rem]">
           Dashboard Widgets
         </label>
 

@@ -9,7 +9,7 @@ function Card(props: any) {
     type = "bg-blue-500";
   }
   return (
-    <Link href={"/details"}>
+    <Link href={"/chart/detail?chart=false"}>
       <div className="flex-1 border border-gray-300 rounded-lg p-4 hover:bg-slate-50">
         <div className="flex items-center">
           <div className="flex flex-col flex-1">

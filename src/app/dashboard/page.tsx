@@ -1,16 +1,53 @@
 "use client";
 
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Icons from "../components/ui/Icons";
 import Card from "../components/ui/Card";
 import Panel from "../components/ui/Panel";
 import NotificationCard from "../components/ui/NotificationCard";
 import ActionCard from "../components/ui/ActionCard";
-import dynamic from "next/dynamic";
-const HeatmapCalendar = dynamic(() => import("../components/ui/HeatmapCalendar"), { ssr: false });
-
+import { redirect } from "next/navigation";
+import HeatCalendar from "../components/ui/HeatCalender";
+import moment from "moment";
+import { useData, useDataLog } from "../notification/useDataLog";
 
 function Dashboard() {
+  const [note, setNote] = useState([]);
+  const [action, setAction] = useState([]);
+  const [heatData, setHeatData] = useState([]);
+
+  const today = moment().format("YYYY-MM-DD");
+  const startDayOfMonth = moment().startOf("month").format("YYYY-MM-DD");
+
+  useEffect(() => {
+    useDataLog().then((res) => {
+      setNote(res.splice(0, 5));
+      setAction(res.splice(0, 5));
+    });
+
+    const dateLog: any = {};
+    const dateKey = "Due Date";
+    useData().then((data: any) => {
+      data.records.forEach((r: any) => {
+        if (dateLog.hasOwnProperty(r[dateKey])) {
+          dateLog[r[dateKey]] += 1;
+        } else {
+          dateLog[r[dateKey]] = 1;
+        }
+      });
+
+      const arr: { date: string; count: number }[] = [];
+      Object.keys(dateLog).forEach((k) => {
+        arr.push({
+          date: k,
+          count: dateLog[k],
+        });
+      });
+
+      setHeatData(arr as any);
+    });
+  }, []);
+
   const cards = [
     {
       label: "Total Invoices Uploaded till date",
@@ -62,51 +99,10 @@ function Dashboard() {
         <div className="w-[40%]">
           <Panel
             title="Notification"
-            onViewMore={() => console.log()}
+            onViewMore={() => redirect("notification")}
             h={"h-[30vh]"}
           >
-            {[
-              {
-                title: "FastDelivery Co",
-                desc: "Accepted for Dynamic Discounting",
-                date: "12-12-2014 14:23",
-                invoiceId: "#INV1232",
-                price: "$23,232",
-                status: "approve",
-              },
-              {
-                title: "TechWave Inc",
-                desc: "Accepted for Dynamic Discounting",
-                date: "09-12-2014 11:10",
-                invoiceId: "#INV1222",
-                price: "$4,332",
-                status: "approve",
-              },
-              {
-                title: "CementMix",
-                desc: "Rejected for Dynamic Discounting",
-                date: "22-12-2014 01:11",
-                invoiceId: "#INV1132",
-                price: "$13,221",
-                status: "reject",
-              },
-              {
-                title: "PaperStack",
-                desc: "Rejected for Dynamic Discounting",
-                date: "22-12-2014 01:11",
-                invoiceId: "#INV1132",
-                price: "$11,111",
-                status: "reject",
-              },
-              {
-                title: "TechWave Inc",
-                desc: "Rejected for Dynamic Discounting",
-                date: "22-12-2014 01:11",
-                invoiceId: "#INV1132",
-                price: "$111",
-                status: "reject",
-              },
-            ].map((d, i) => (
+            {note.map((d, i) => (
               <NotificationCard data={d} key={i}></NotificationCard>
             ))}
           </Panel>
@@ -116,63 +112,31 @@ function Dashboard() {
       <div className="flex items-stretch gap-4 my-4">
         <div className="w-[60%] flex">
           <Panel
-            title="Dec 2024, Invoices due this month"
-            onViewMore={() => console.log()}
+            title={moment().format("MMMM YYYY") + ", Invoices due this month"}
+            onViewMore={() =>
+              redirect(
+                `chart/detail?chart=false&from=${startDayOfMonth}&to=${today}`
+              )
+            }
             h={"h-[40vh]"}
           >
-            {/* <HeatMap></HeatMap> */}
-            <HeatmapCalendar></HeatmapCalendar>
+            <HeatCalendar
+              data={heatData}
+              onSelect={(d: string[]) =>
+                redirect(`chart/detail?chart=false&from=${d[0]}&to=${d[1]}`)
+              }
+            ></HeatCalendar>
+
             {/* <Image src={"/heatmap.png"} alt="" width={800} height={400} /> */}
           </Panel>
         </div>
         <div className="w-[40%]">
           <Panel
             title="Action Items"
-            onViewMore={() => console.log()}
+            onViewMore={() => redirect("action")}
             h={"h-[40vh]"}
           >
-            {[
-              {
-                title: "FashionPoint",
-                desc: "Accepted for Dynamic Discounting",
-                date: "12-12-2014 14:23",
-                invoiceId: "#INV1232",
-                price: "$23,232",
-                status: "approve",
-              },
-              {
-                title: "FastFix Supplies",
-                desc: "Accepted for Dynamic Discounting",
-                date: "09-12-2014 11:10",
-                invoiceId: "#INV1222",
-                price: "$4,332",
-                status: "approve",
-              },
-              {
-                title: "MegaFoods",
-                desc: "Rejected for Dynamic Discounting",
-                date: "22-12-2014 01:11",
-                invoiceId: "#INV1132",
-                price: "$13,111",
-                status: "reject",
-              },
-              {
-                title: "Top Shoppers",
-                desc: "Rejected for Dynamic Discounting",
-                date: "22-12-2014 01:11",
-                invoiceId: "#INV1132",
-                price: "$13,111",
-                status: "reject",
-              },
-              {
-                title: "Info Tech Pvt Ltd",
-                desc: "Rejected for Dynamic Discounting",
-                date: "22-12-2014 01:11",
-                invoiceId: "#INV1132",
-                price: "$13,111",
-                status: "reject",
-              },
-            ].map((d, i) => (
+            {action.map((d, i) => (
               <ActionCard data={d} key={i}></ActionCard>
             ))}
           </Panel>

@@ -6,7 +6,7 @@ import Image from "next/image";
 import DropDown from "../ui/DropDown";
 import Icons from "../ui/Icons";
 import Button from "../ui/Button";
-import { usePathname } from "next/navigation";
+import { redirect, usePathname } from "next/navigation";
 import User from "./User";
 
 const Header = () => {
@@ -45,16 +45,12 @@ const Header = () => {
               label: "Analytics",
               value: "/analytics",
             },
-            {
-              label: "User Preference",
-              value: "/user-preference",
-            },
           ].map((o, index) => (
             <Link
               key={index}
               href={o.value}
               className={`text-gray-600 hover:text-primary-600 border-b-primary-700 ${
-                isActive("/" + o.value) ? "text-primary-600 text-bold" : ""
+                isActive(o.value) ? "text-primary-600 text-bold" : ""
               }`}
             >
               {o.label}
@@ -64,7 +60,10 @@ const Header = () => {
 
         {/* Login Button */}
         <div className="hidden md:block justify-center items-center">
-          <Button className="mx-2 relative">
+          <Button
+            className="mx-2 relative"
+            onClick={() => redirect("notification")}
+          >
             <Icons type="bell" size={5} />
             <span className="absolute top-0 right-0 p-1 bg-red-400 rounded-full w-[22px] h-[22px] flex items-center justify-center text-white">
               2
@@ -74,24 +73,29 @@ const Header = () => {
             <DropDown
               options={[
                 {
-                  label: "Profile",
-                  value: "profile",
+                  label: "John Stev ( Buyer )",
+                  value: "/profile",
+                  icon: "user",
+                  actionType: "link",
+                },
+                {
+                  label: "User Preference",
+                  value: "/user-preference",
+                  icon: "settings",
                   actionType: "link",
                 },
                 {
                   label: "Logout",
                   value: "logout",
+                  icon: "logout",
                   actionType: "button",
                 },
               ]}
               onSelect={(e: any) => console.log(e)}
             >
               <div className="flex justify-between items-center text-sm gap-2 text-gray-800">
-                <Icons type="user" size={5}></Icons>
-                <div className="text-sm">
-                  Pioneer Enterprises |{" "}
-                  <span className="font-bold mx-1">Buyer</span>
-                </div>
+                <Icons type="building" size={5}></Icons>
+                <div className="text-sm">Pioneer Enterprises</div>
               </div>
             </DropDown>
           )) || <Button theme="primary">Login</Button>}

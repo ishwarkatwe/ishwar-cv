@@ -10,8 +10,13 @@ import Highcharts from "highcharts";
 import data from "./../payment-settlements/data.json";
 import { parseISO, format } from "date-fns";
 import { redirect } from "next/navigation";
+import moment from "moment";
 
 function Page() {
+  const today = moment().format("YYYY-MM-DD");
+  const startDayOfMonth = moment().startOf("month").format("YYYY-MM-DD");
+  const endDayOfMonth = moment().endOf("month").format("YYYY-MM-DD");
+
   const cards = [
     {
       label: "Invoice Pending for Discounting",
@@ -510,7 +515,11 @@ function Page() {
           <div className="flex-auto">
             <Panel
               title="Total Invoice Amount by Buyer"
-              onViewMore={() => redirect("/chart/detail")}
+              onViewMore={() =>
+                redirect(
+                  `chart/detail?chart=true&from=${startDayOfMonth}&to=${endDayOfMonth}`
+                )
+              }
               h={"h-[100%]"}
             >
               <HighchartsReact

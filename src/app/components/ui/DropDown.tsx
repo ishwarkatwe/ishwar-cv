@@ -11,6 +11,20 @@ export interface IOPTIONS {
   label: string;
   value: string;
   actionType: string;
+  icon?: string;
+}
+
+function DropDownOption({ data }: { data: IOPTIONS }) {
+  return (
+    <div className="flex gap-2 items-center">
+      {data.icon && (
+        <div className="w-[25px] flex justify-center items-center">
+          <Icons type={data.icon} size={5} />
+        </div>
+      )}
+      <div>{data.label}</div>
+    </div>
+  );
 }
 
 function DropDown({
@@ -54,7 +68,7 @@ function DropDown({
         {children}
         {(!icon && (
           <svg
-            className="mr-1 size-5 text-gray-400"
+            className="ml-1 size-5 text-gray-400"
             viewBox="0 0 20 20"
             fill="currentColor"
             aria-hidden="true"
@@ -84,17 +98,17 @@ function DropDown({
                 <a
                   href={o.value}
                   key={index}
-                  className="block px-4 py-2 text-sm text-gray-700"
+                  className="block px-4 py-2 text-sm text-gray-700 hover:bg-slate-50"
                   role="menuitem"
                   tabIndex={-1}
                   id={`menu-item-${index}`}
                 >
-                  {o.label}
+                  <DropDownOption data={o} />
                 </a>
               ) : (
                 <button
                   key={index}
-                  className="block px-4 py-2 text-sm text-gray-700"
+                  className="block px-4 py-2 text-sm text-gray-700 hover:bg-slate-50 w-full text-left"
                   role="menuitem"
                   tabIndex={-1}
                   id={`menu-item-${index}`}
@@ -103,7 +117,7 @@ function DropDown({
                     setDropdownOpen(false);
                   }}
                 >
-                  {o.label}
+                  <DropDownOption data={o} />
                 </button>
               );
             })}
