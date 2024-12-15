@@ -56,15 +56,15 @@ function page() {
       type: COLUMN_TYPE.BADGE,
       formatter: (row: any) => {
         return row["Status"] === "Paid" ? (
-          <span className="bg-green-700 text-white px-2 py-1 rounded-md text-xs">
+          <span className="bg-green-400 text-white px-2 py-1 rounded-md text-xs w-[80px] inline-block text-center">
             Paid
           </span>
         ) : row["Status"] === "Unpaid" ? (
-          <span className="bg-orange-500 text-white px-2 py-1 rounded-md text-xs">
+          <span className="bg-orange-400 text-white px-2 py-1 rounded-md text-xs w-[80px] inline-block text-center">
             Un Paid
           </span>
         ) : (
-          <span className="bg-blue-500 text-white px-2 py-1 rounded-md text-xs">
+          <span className="bg-blue-400 text-white px-2 py-1 rounded-md text-xs w-[80px] inline-block text-center">
             Pending
           </span>
         );

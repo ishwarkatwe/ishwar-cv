@@ -61,8 +61,8 @@ export default function LoginPage() {
   }, []);
 
   return (
-    <div className="flex h-screen w-screen">
-      <div className="h-screen w-[50%] flex flex-col justify-center items-center bg-gradient-to-br from-sky-100 to-blue-200">
+    <div className="flex flex-col md:flex-row md:h-screen w-screen">
+      <div className="md:h-screen md:w-[50%] flex flex-col justify-center items-center bg-gradient-to-br from-sky-100 to-blue-200">
         <h1 className=" font-sans text-lg italic my-8">
           " {messages[currentSlide]} "
         </h1>
@@ -85,8 +85,8 @@ export default function LoginPage() {
           ))}
         </div>
       </div>
-      <div className="flex flex-col justify-center items-center w-[50rem]">
-        <div className="flex flex-col w-[70%] p-6">
+      <div className="flex flex-col justify-center items-center md:w-[50rem]">
+        <div className="flex flex-col md:w-[70%] p-6">
           <div className="flex flex-col gap-2 items-center justify-center">
             <Image src="/logo.png" height={50} width={200} alt="Logo" />
             <p className="my-2">Let's build something great</p>
@@ -217,7 +217,7 @@ export default function LoginPage() {
               </Button>
             </div>
 
-            <div className="text-xs text-gray-600 flex justify-center items-center gap-2 py-4 mt-10">
+            <div className="text-xs text-gray-600 flex flex-wrap justify-center items-center gap-2 py-4 mt-10">
               <Link href={""}>Privacy Policy</Link>
               <div className="h-4 w-px bg-gray-200"></div>
               <Link href={""}>Terms & Conditions</Link>
