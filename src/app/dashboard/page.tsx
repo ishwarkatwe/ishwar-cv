@@ -81,10 +81,10 @@ function Dashboard() {
 
   return (
     <div className="container mx-auto p-4">
-      <div className="flex items-stretch gap-2">
-        <div className="w-[60%] gap-2 flex flex-wrap self-center">
+      <div className="flex flex-col md:flex-row items-stretch gap-2">
+        <div className="md:w-[60%] gap-2 flex flex-wrap self-center">
           {cards.map((c) => (
-            <div className="lg:w-[49%] md:w-[100%]" key={c.label}>
+            <div className="lg:w-[49%] md:w-[100%] w-full" key={c.label}>
               <Card
                 title={c.label}
                 count={c.count}
@@ -96,7 +96,7 @@ function Dashboard() {
             </div>
           ))}
         </div>
-        <div className="w-[40%]">
+        <div className="md:w-[40%]">
           <Panel
             title="Notification"
             onViewMore={() => redirect("notification")}
@@ -109,8 +109,8 @@ function Dashboard() {
         </div>
       </div>
 
-      <div className="flex items-stretch gap-4 my-4">
-        <div className="w-[60%] flex">
+      <div className="flex flex-col md:flex-row items-stretch gap-4 my-4">
+        <div className="md:w-[60%] flex">
           <Panel
             title={moment().format("MMMM YYYY") + ", Invoices due this month"}
             onViewMore={() =>
@@ -126,11 +126,9 @@ function Dashboard() {
                 redirect(`chart/detail?chart=false&from=${d[0]}&to=${d[1]}`)
               }
             ></HeatCalendar>
-
-            {/* <Image src={"/heatmap.png"} alt="" width={800} height={400} /> */}
           </Panel>
         </div>
-        <div className="w-[40%]">
+        <div className="md:w-[40%]">
           <Panel
             title="Action Items"
             onViewMore={() => redirect("action")}

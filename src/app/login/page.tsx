@@ -62,7 +62,7 @@ export default function LoginPage() {
 
   return (
     <div className="flex flex-col md:flex-row md:h-screen w-screen">
-      <div className="md:h-screen md:w-[50%] flex flex-col justify-center items-center bg-gradient-to-br from-sky-100 to-blue-200">
+      <div className="hidden md:inline-flex md:h-screen md:w-[50%] flex flex-col justify-center items-center bg-gradient-to-br from-sky-100 to-blue-200">
         <h1 className=" font-sans text-lg italic my-8">
           " {messages[currentSlide]} "
         </h1>
@@ -85,11 +85,10 @@ export default function LoginPage() {
           ))}
         </div>
       </div>
-      <div className="flex flex-col justify-center items-center md:w-[50rem]">
+      <div className="flex flex-col h-screen justify-center items-center md:w-[50rem]">
         <div className="flex flex-col md:w-[70%] p-6">
           <div className="flex flex-col gap-2 items-center justify-center">
             <Image src="/logo.png" height={50} width={200} alt="Logo" />
-            <p className="my-2">Let's build something great</p>
           </div>
 
           {login && (
@@ -200,35 +199,32 @@ export default function LoginPage() {
             </>
           )}
 
-          <div className="flex flex-col justify-end my-2">
-            <div className="text-sm text-center mt-2 text-gray-800">
-              or do it via other accounts
-            </div>
+          {login && (
+            <div className="flex flex-col justify-end my-2">
+              <div className="text-sm text-center mt-2 text-gray-800">
+                or do it via other accounts
+              </div>
 
-            <div className="flex gap-4">
-              <Button className="w-full my-2 bg-red-400 text-white border-red-400 hover:bg-red-700">
-                Google
-              </Button>
-              <Button
-                theme={"primary"}
-                className="w-full my-2 bg-blue-500 text-white border-blue-400 hover:bg-blue-600"
-              >
-                Facebook
-              </Button>
-            </div>
+              <div className="flex gap-4 my-4 justify-center items-center">
+                <Button>
+                  <Image src={'/google.svg'} height={30} width={30} alt="Google" />
+                </Button>
+                <Button> <Image src={'/fb.svg'} height={30} width={30} alt="Facebook" /></Button>
+              </div>
 
-            <div className="text-xs text-gray-600 flex flex-wrap justify-center items-center gap-2 py-4 mt-10">
-              <Link href={""}>Privacy Policy</Link>
-              <div className="h-4 w-px bg-gray-200"></div>
-              <Link href={""}>Terms & Conditions</Link>
-              <div className="h-4 w-px bg-gray-200"></div>
-              <Link href={""}>Security Tips</Link>
-              <div className="h-4 w-px bg-gray-200"></div>
-              <Link href={""}>Client Charter</Link>
-              <div className="h-4 w-px bg-gray-200"></div>
-              <Link href={""}>FAQ</Link>
+              <div className="text-xs text-gray-600 flex flex-wrap justify-center items-center gap-2 py-4 mt-10">
+                <Link href={""}>Privacy Policy</Link>
+                <div className="h-4 w-px bg-gray-200"></div>
+                <Link href={""}>Terms & Conditions</Link>
+                <div className="h-4 w-px bg-gray-200"></div>
+                <Link href={""}>Security Tips</Link>
+                <div className="h-4 w-px bg-gray-200"></div>
+                <Link href={""}>Client Charter</Link>
+                <div className="h-4 w-px bg-gray-200"></div>
+                <Link href={""}>FAQ</Link>
+              </div>
             </div>
-          </div>
+          )}
         </div>
       </div>
     </div>
