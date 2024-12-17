@@ -28,11 +28,11 @@ async function page({ params }: any) {
     <>
       <BreadCrumb page={"Invoice " + invoiceId} />
 
-      <div className="px-4 flex flex-col items-center divide-y divide-slate-200">
+      <div className="px-4 flex flex-col md:items-center divide-y divide-slate-200">
         {keys.map((k, i) => (
           <div
             key={i}
-            className="flex w-[50rem] justify-between gap-4 py-4"
+            className="flex md:w-[50rem] justify-between gap-4 py-4"
           >
             <div className="capitalize text-sm">{k || ""}</div>
             <div className="capitalize">

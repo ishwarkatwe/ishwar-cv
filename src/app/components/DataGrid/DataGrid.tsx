@@ -84,7 +84,7 @@ const DataGrid: React.FC<DataGridProps> = ({
 
   return (
     <div className="px-4">
-      <div className="flex flex-col gap-2 md:gap-0 my-2 md:my-0 md:flex-row  justify-between md:items-center mb-4">
+      <div className="flex flex-col gap-2 md:gap-0 my-2 md:my-2 md:flex-row  justify-between md:items-center mb-4">
         <FilterDropdown
           fields={[
             { label: "Name", value: "name", type: "string" },
