@@ -63,8 +63,8 @@ function Upload() {
     <>
       <BreadCrumb page={"Upload Payments"} />
 
-      <div className="px-4 mb-2 pb-0 flex w-full">
-        <div className="flex border border-gray-300 rounded-xl p-2 items-center">
+      <div className="px-4 mb-2 pb-0 flex flex-col md:flex-row w-full">
+        <div className="flex flex-col md:flex-row border border-gray-300 rounded-xl p-2 md:items-center">
           <input className="my-2" type="file" />
           <Button theme="primary" onClick={() => setUpload(true)}>
             Upload
@@ -72,7 +72,7 @@ function Upload() {
         </div>
 
         {bulkSelected && (
-          <div className="flex justify-between w-full flex-2 rounded-lg px-4 ml-2 items-center bg-blue-50 border border-blue-100">
+          <div className="flex flex-col md:flex-row justify-between w-full flex-2 rounded-lg  md:px-4 ml-2 items-center bg-blue-50 border border-blue-100">
             <p>
               <b className="mr-2">{selectedRecords.length} Records Selected</b>
               ,Total amount of

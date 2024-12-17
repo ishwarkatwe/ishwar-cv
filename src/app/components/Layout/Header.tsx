@@ -10,6 +10,25 @@ import { redirect, usePathname } from "next/navigation";
 import User from "./User";
 
 const Header = () => {
+  const [navbar, setNavbar] = useState([
+    {
+      label: "Dashboard",
+      value: "/dashboard",
+    },
+    {
+      label: "Upload Payments",
+      value: "/upload",
+    },
+    {
+      label: "Payment & Settlements",
+      value: "/payment-settlements",
+    },
+    {
+      label: "Analytics",
+      value: "/analytics",
+    },
+  ]);
+  
   const pathname = usePathname(); // Get the current pathname
   const isActive = (path: string) => pathname.startsWith(path);
 
@@ -28,24 +47,7 @@ const Header = () => {
 
         {/* Nav Links (Desktop) */}
         <div className="hidden md:flex space-x-6">
-          {[
-            {
-              label: "Dashboard",
-              value: "/dashboard",
-            },
-            {
-              label: "Upload Payments",
-              value: "/upload",
-            },
-            {
-              label: "Payment & Settlements",
-              value: "/payment-settlements",
-            },
-            {
-              label: "Analytics",
-              value: "/analytics",
-            },
-          ].map((o, index) => (
+          {navbar.map((o, index) => (
             <Link
               key={index}
               href={o.value}
@@ -62,7 +64,7 @@ const Header = () => {
         <div className="hidden md:block justify-center items-center">
           <Button
             className="mx-2 relative"
-            onClick={() => redirect("notification")}
+            onClick={() => redirect("/notification")}
           >
             <Icons type="bell" size={5} />
             <span className="absolute top-0 right-0 p-1 bg-red-400 rounded-full w-[22px] h-[22px] flex items-center justify-center text-white">
@@ -129,30 +131,17 @@ const Header = () => {
       {/* Mobile Menu */}
       {isOpen && (
         <div className="md:hidden bg-gray-100 shadow-lg">
-          <Link
-            href="/"
-            className="block px-4 py-2 text-gray-600 hover:bg-gray-200"
-          >
-            Home
-          </Link>
-          <Link
-            href="/about"
-            className="block px-4 py-2 text-gray-600 hover:bg-gray-200"
-          >
-            About
-          </Link>
-          <Link
-            href="/contact"
-            className="block px-4 py-2 text-gray-600 hover:bg-gray-200"
-          >
-            Contact
-          </Link>
-          <Link
-            href="/blog"
-            className="block px-4 py-2 text-gray-600 hover:bg-gray-200"
-          >
-            Blog
-          </Link>
+          {navbar.map((o, index) => (
+            <Link
+              key={index}
+              href={o.value}
+              className={`block px-4 py-2 text-gray-600 hover:bg-gray-200 ${
+                isActive(o.value) ? "text-primary-600 text-bold" : ""
+              }`}
+            >
+              {o.label}
+            </Link>
+          ))}
         </div>
       )}
     </nav>

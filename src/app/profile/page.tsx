@@ -47,7 +47,7 @@ function Page() {
     <>
       <BreadCrumb page={"Profile"} />
 
-      <div className="px-4 w-[50rem] mx-auto">
+      <div className="px-4 md:w-[50rem] mx-auto">
         <Panel title="User Information" h={"h-[100%]"}>
           <div className="flex flex-col">
             <div>
@@ -73,7 +73,7 @@ function Page() {
           </div>
         </Panel>
       </div>
-      <div className="px-4 w-[50rem] my-4 mx-auto">
+      <div className="px-4 md:w-[50rem] my-4 mx-auto">
         <Panel title="Update Password" h={"h-[100%]"}>
           <div className="flex flex-col">
             <div>

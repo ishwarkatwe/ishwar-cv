@@ -8,12 +8,11 @@ import Panel from "../components/ui/Panel";
 import HighchartsReact from "highcharts-react-official";
 import Highcharts from "highcharts";
 import data from "./../payment-settlements/data.json";
-import { parseISO, format } from "date-fns";
 import { redirect } from "next/navigation";
 import moment from "moment";
 
 function Page() {
-  const today = moment().format("YYYY-MM-DD");
+  // const today = moment().format("YYYY-MM-DD");
   const startDayOfMonth = moment().startOf("month").format("YYYY-MM-DD");
   const endDayOfMonth = moment().endOf("month").format("YYYY-MM-DD");
 
@@ -61,17 +60,17 @@ function Page() {
     return acc;
   }, {});
 
-  const invoiceAmountTrend = records
-    .map((record) => ({
-      x: new Date(record["Invoice Date"]).getTime(),
-      y: parseFloat(record.Amount),
-    }))
-    .sort((a, b) => a.x - b.x);
+  // const invoiceAmountTrend = records
+  //   .map((record) => ({
+  //     x: new Date(record["Invoice Date"]).getTime(),
+  //     y: parseFloat(record.Amount),
+  //   }))
+  //   .sort((a, b) => a.x - b.x);
 
-  const scatterInvoiceVsDiscount = records.map((record) => ({
-    x: parseFloat(record["Discount Amount"]),
-    y: parseFloat(record.Amount),
-  }));
+  // const scatterInvoiceVsDiscount = records.map((record) => ({
+  //   x: parseFloat(record["Discount Amount"]),
+  //   y: parseFloat(record.Amount),
+  // }));
 
   // Chart Configurations
   const totalInvoiceChartOptions = {
@@ -108,76 +107,76 @@ function Page() {
     },
   };
 
-  const invoiceTrendChartOptions = {
-    chart: { type: "line" },
-    title: { text: "" },
-    xAxis: { type: "datetime" },
-    yAxis: { title: { text: "Amount (USD)" } },
-    series: [
-      {
-        name: "Invoice Amount",
-        data: invoiceAmountTrend,
-      },
-    ],
-    credits: {
-      enabled: false,
-    },
-  };
+  // const invoiceTrendChartOptions = {
+  //   chart: { type: "line" },
+  //   title: { text: "" },
+  //   xAxis: { type: "datetime" },
+  //   yAxis: { title: { text: "Amount (USD)" } },
+  //   series: [
+  //     {
+  //       name: "Invoice Amount",
+  //       data: invoiceAmountTrend,
+  //     },
+  //   ],
+  //   credits: {
+  //     enabled: false,
+  //   },
+  // };
 
-  const scatterChartOptions = {
-    chart: { type: "scatter" },
-    title: { text: "" },
-    xAxis: { title: { text: "Discount Amount (USD)" } },
-    yAxis: { title: { text: "Invoice Amount (USD)" } },
-    series: [
-      {
-        name: "Invoices",
-        data: scatterInvoiceVsDiscount,
-      },
-    ],
-    credits: {
-      enabled: false,
-    },
-  };
+  // const scatterChartOptions = {
+  //   chart: { type: "scatter" },
+  //   title: { text: "" },
+  //   xAxis: { title: { text: "Discount Amount (USD)" } },
+  //   yAxis: { title: { text: "Invoice Amount (USD)" } },
+  //   series: [
+  //     {
+  //       name: "Invoices",
+  //       data: scatterInvoiceVsDiscount,
+  //     },
+  //   ],
+  //   credits: {
+  //     enabled: false,
+  //   },
+  // };
 
   // Extract Data for Chart
-  const categories = records.map((record) => record["Invoice Number"]); // Use Invoice Numbers as categories
-  const discountAmounts = records.map((record) =>
-    parseFloat(record["Discount Amount"])
-  );
-  const invoiceAmounts = records.map((record) => parseFloat(record.Amount));
+  // const categories = records.map((record) => record["Invoice Number"]); // Use Invoice Numbers as categories
+  // const discountAmounts = records.map((record) =>
+  //   parseFloat(record["Discount Amount"])
+  // );
+  // const invoiceAmounts = records.map((record) => parseFloat(record.Amount));
 
   // Bar Chart Configuration
-  const barChartOptions = {
-    chart: { type: "bar" },
-    title: { text: "Discount Amount vs. Invoice Amount" },
-    xAxis: {
-      categories,
-      title: { text: "Invoice Number" },
-    },
-    yAxis: {
-      min: 0,
-      title: { text: "Amount (USD)" },
-    },
-    series: [
-      {
-        name: "Discount Amount",
-        data: discountAmounts,
-        color: "#FF4081", // Custom color for Discount Amount
-      },
-      {
-        name: "Invoice Amount",
-        data: invoiceAmounts,
-        color: "#536DFE", // Custom color for Invoice Amount
-      },
-    ],
-    tooltip: {
-      pointFormat: "{series.name}: <b>${point.y}</b>",
-    },
-    legend: {
-      reversed: false,
-    },
-  };
+  // const barChartOptions = {
+  //   chart: { type: "bar" },
+  //   title: { text: "Discount Amount vs. Invoice Amount" },
+  //   xAxis: {
+  //     categories,
+  //     title: { text: "Invoice Number" },
+  //   },
+  //   yAxis: {
+  //     min: 0,
+  //     title: { text: "Amount (USD)" },
+  //   },
+  //   series: [
+  //     {
+  //       name: "Discount Amount",
+  //       data: discountAmounts,
+  //       color: "#FF4081", // Custom color for Discount Amount
+  //     },
+  //     {
+  //       name: "Invoice Amount",
+  //       data: invoiceAmounts,
+  //       color: "#536DFE", // Custom color for Invoice Amount
+  //     },
+  //   ],
+  //   tooltip: {
+  //     pointFormat: "{series.name}: <b>${point.y}</b>",
+  //   },
+  //   legend: {
+  //     reversed: false,
+  //   },
+  // };
 
   const spline = {
     chart: {
@@ -384,19 +383,19 @@ function Page() {
   };
 
   // Step 1: Aggregate discounts by month
-  const discountByMonth = records.reduce((acc: any, record) => {
-    const month = format(parseISO(record["Invoice Date"]), "yyyy-MM");
-    acc[month] = (acc[month] || 0) + parseFloat(record["Discount Amount"]);
-    return acc;
-  }, {});
+  // const discountByMonth = records.reduce((acc: any, record) => {
+  //   const month = format(parseISO(record["Invoice Date"]), "yyyy-MM");
+  //   acc[month] = (acc[month] || 0) + parseFloat(record["Discount Amount"]);
+  //   return acc;
+  // }, {});
 
-  // Step 2: Prepare Highcharts data
-  const seriesData = Object.entries(discountByMonth).map(
-    ([month, discount]) => ({
-      name: month,
-      y: discount,
-    })
-  );
+  // // Step 2: Prepare Highcharts data
+  // const seriesData = Object.entries(discountByMonth).map(
+  //   ([month, discount]) => ({
+  //     name: month,
+  //     y: discount,
+  //   })
+  // );
 
   // Highcharts Options
   const chartOptions = {
@@ -479,9 +478,9 @@ function Page() {
 
   return (
     <>
-      <nav className="flex items-center justify-between">
+      <nav className="flex flex-col md:flex-row md:items-center justify-between">
         <BreadCrumb page={"Analytics"} />
-        <div className="px-4 flex gap-1 items-center mx-1">
+        <div className="px-4 flex flex-col md:flex-row gap-1 md:items-center mx-1 py-2 md:py-0">
           <span>From : </span>{" "}
           <input
             type="date"
@@ -498,9 +497,9 @@ function Page() {
       </nav>
 
       <div className="px-4">
-        <div className="flex gap-4 items-center justify-center">
+        <div className="flex flex-col md:flex-row gap-4 items-center justify-center">
           {cards.map((c) => (
-            <div className="lg:w-[24%]" key={c.label}>
+            <div className="flex-1 w-full" key={c.label}>
               <Card
                 title={c.label}
                 count={c.count}
@@ -513,7 +512,7 @@ function Page() {
           ))}
         </div>
 
-        <div className="flex py-4 gap-4">
+        <div className="flex flex-col md:flex-row py-4 gap-4">
           <div className="flex-auto">
             <Panel
               title="Total Invoice Amount by Buyer"
@@ -530,7 +529,7 @@ function Page() {
               />
             </Panel>
           </div>
-          <div className="w-[30%]">
+          <div className="w-full md:w-[30%]">
             <Panel
               title="Payment Status Distribution"
               onViewMore={() => redirect("/chart/detail")}
@@ -544,7 +543,7 @@ function Page() {
           </div>
         </div>
 
-        <div className="flex py-4 gap-4">
+        <div className="flex flex-col md:flex-row py-4 gap-4">
           <div className="flex-auto">
             <Panel
               title="Invoice Amount vs Discounting Over Time"
@@ -554,7 +553,7 @@ function Page() {
               <HighchartsReact highcharts={Highcharts} options={spline} />
             </Panel>
           </div>
-          <div className="w-[30%]">
+          <div className="w-full md:w-[30%]">
             <Panel
               title="Discount Earnings Distribution"
               onViewMore={() => redirect("/chart/detail")}

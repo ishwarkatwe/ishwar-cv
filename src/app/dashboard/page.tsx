@@ -77,42 +77,44 @@ function Dashboard() {
       icon: "total",
       theme: "bg-yellow-400",
     },
+    {
+      label: "Invoice Pending for Discounting",
+      count: "112",
+      stats: "-12%",
+      icon: "bills",
+      theme: "bg-blue-400",
+    },
+    {
+      label: "Value of Invoices Pending for Discounting",
+      count: "$10,112",
+      stats: "+3%",
+      icon: "bell",
+      theme: "bg-primary-200",
+    },
   ];
 
   return (
     <div className="container mx-auto p-4">
-      <div className="flex flex-col md:flex-row items-stretch gap-2">
-        <div className="md:w-[60%] gap-2 flex flex-wrap self-center">
-          {cards.map((c) => (
-            <div className="lg:w-[49%] md:w-[100%] w-full" key={c.label}>
-              <Card
-                title={c.label}
-                count={c.count}
-                stats={c.stats}
-                theme={c.theme}
-              >
-                <Icons type={c.icon} size={5} />
-              </Card>
-            </div>
-          ))}
-        </div>
-        <div className="md:w-[40%]">
-          <Panel
-            title="Notification"
-            onViewMore={() => redirect("notification")}
-            h={"h-[30vh]"}
-          >
-            {note.map((d, i) => (
-              <NotificationCard data={d} key={i}></NotificationCard>
-            ))}
-          </Panel>
-        </div>
+      <div className="flex flex-wrap gap-4 items-center justify-between">
+        {cards.map((c) => (
+          <div className="flex-wrap w-full md:w-[28vw]" key={c.label}>
+            <Card
+              title={c.label}
+              count={c.count}
+              stats={c.stats}
+              theme={c.theme}
+            >
+              <Icons type={c.icon} size={5} />
+            </Card>
+          </div>
+        ))}
       </div>
 
       <div className="flex flex-col md:flex-row items-stretch gap-4 my-4">
-        <div className="md:w-[60%] flex">
+        <div className="flex flex-1">
           <Panel
-            title={moment().format("MMMM YYYY") + ", Invoices due this month"}
+            title={moment().format("MMMM YYYY")}
+            subTitle={"Invoices due this month"}
             onViewMore={() =>
               redirect(
                 `chart/detail?chart=false&from=${startDayOfMonth}&to=${today}`
@@ -128,7 +130,7 @@ function Dashboard() {
             ></HeatCalendar>
           </Panel>
         </div>
-        <div className="md:w-[40%]">
+        <div className="flex flex-1">
           <Panel
             title="Action Items"
             onViewMore={() => redirect("action")}
@@ -136,6 +138,17 @@ function Dashboard() {
           >
             {action.map((d, i) => (
               <ActionCard data={d} key={i}></ActionCard>
+            ))}
+          </Panel>
+        </div>
+        <div className="flex flex-1">
+          <Panel
+            title="Notification"
+            onViewMore={() => redirect("notification")}
+            h={"h-[40vh]"}
+          >
+            {note.map((d, i) => (
+              <NotificationCard data={d} key={i}></NotificationCard>
             ))}
           </Panel>
         </div>

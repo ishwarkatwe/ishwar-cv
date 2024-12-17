@@ -109,9 +109,9 @@ function page() {
   };
   return (
     <>
-      <nav className="flex items-center justify-between">
+      <nav className="flex flex-col md:flex-row  md:items-center justify-between">
         <BreadCrumb page={"Details"} />
-        <div className="px-4 flex gap-1 items-center mx-1">
+        <div className="px-4 py-2 md:py-0 flex flex-col md:flex-row  gap-1 md:items-center mx-1">
           <span>From : </span>{" "}
           <input
             type="date"

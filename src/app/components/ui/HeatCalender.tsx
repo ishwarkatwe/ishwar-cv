@@ -61,7 +61,7 @@ const HeatCalendar: React.FC<HeatmapCalendarProps> = ({ data, onSelect }) => {
             onClick={() => onSelect && onSelect([date, date])}
           >
             {count > 0 && (
-              <div className=" absolute top-1 left-1 text-sm h-[25px] min-w[25px] px-1 bg-white flex justify-center items-center rounded-sm">
+              <div className=" absolute top-0.5 left-0.5 text-sm h-[20px] min-w[25px] px-0.5 bg-white flex justify-center items-center rounded-sm">
                 {count}
               </div>
             )}

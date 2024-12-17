@@ -123,7 +123,7 @@ function Page() {
 
      
       </div> */}
-      <div className="px-4 w-[50rem] mx-auto">
+      <div className="px-4 md:w-[50rem] mx-auto">
         <Panel title="User Preference" h={"h-[100%]"}>
           <div className="flex flex-col">
             <div>
