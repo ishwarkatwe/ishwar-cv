@@ -28,7 +28,7 @@ const Header = () => {
       value: "/analytics",
     },
   ]);
-  
+
   const pathname = usePathname(); // Get the current pathname
   const isActive = (path: string) => pathname.startsWith(path);
 
@@ -61,7 +61,7 @@ const Header = () => {
         </div>
 
         {/* Login Button */}
-        <div className="hidden md:block justify-center items-center">
+        <div className="flex justify-center items-center">
           <Button
             className="mx-2 relative"
             onClick={() => redirect("/notification")}
@@ -97,7 +97,9 @@ const Header = () => {
             >
               <div className="flex justify-between items-center text-sm gap-2 text-gray-800">
                 <Icons type="building" size={5}></Icons>
-                <div className="text-sm">Pioneer Enterprises</div>
+                <div className="hidden md:block text-sm">
+                  Pioneer Enterprises
+                </div>
               </div>
             </DropDown>
           )) || <Button theme="primary">Login</Button>}
