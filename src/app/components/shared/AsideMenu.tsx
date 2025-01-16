@@ -18,21 +18,21 @@ const AsideMenu: React.FC = () => {
           <nav className="flex-1 w-64">
             <ul className="space-y-2 p-4">
               <li>
-                <Link href="/">
+                <Link href="/dashboard">
                   <div className="block p-2 rounded hover:bg-gray-700">
-                    Home
+                    Dashboard
                   </div>
                 </Link>
               </li>
               <li>
-                <Link href="/dashboard">
+                <Link href="/categories">
                   <div className="block p-2 rounded hover:bg-gray-700">
                     Manage Categories
                   </div>
                 </Link>
               </li>
               <li>
-                <Link href="/profile">
+                <Link href="/products">
                   <div className="block p-2 rounded hover:bg-gray-700">
                     Manage Products
                   </div>

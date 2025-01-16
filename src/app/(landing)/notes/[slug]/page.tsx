@@ -27,7 +27,7 @@ async function fetchCourse(slug: string): Promise<Course | null> {
 }
 
 interface DetailPageProps {
-  params: { slug: string };
+  params: Promise<{ slug: string }>;
 }
 
 export default async function DetailPage({ params }: DetailPageProps) {
