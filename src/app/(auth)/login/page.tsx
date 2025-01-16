@@ -6,6 +6,7 @@ import React, { useState } from "react";
 import formSchema from "./formScheme";
 // import { useAuth } from "../AuthContext";
 import { useRouter } from "next/navigation";
+import Desc from "@/app/components/core/Desc";
 // import { fetchWithAuth } from "@/app/components/services/fetchWithAuth";
 
 const Login: React.FC = () => {
@@ -48,9 +49,10 @@ const Login: React.FC = () => {
   };
 
   return (
-    <div className="bg-gradient-to-r from-indigo-500 to-purple-600 flex h-screen w-screen items-center justify-center">
-      <div className="w-[50%] mx-auto p-10 bg-white rounded-md">
-        <Title className="mb-2">Login</Title>
+    <div className="bg-gradient-to-r from-indigo-500 to-purple-600 flex h-screen w-screen items-center justify-center p-4">
+      <div className="w-full max-w-md mx-auto p-6 bg-white rounded-md shadow-md">
+        <Title className="my-2">Login</Title>
+        <Desc>Welcome, Tell us more to get started</Desc>
         {error && <p className="text-red-500 mb-4">{error}</p>}
         <DynamicForm
           schema={formSchema}
