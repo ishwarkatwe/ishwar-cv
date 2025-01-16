@@ -11,7 +11,7 @@ function NavBar() {
         <nav className="flex h-16 items-center justify-between">
           <div>
             <Link href={"/"} className=" ml-4 text-2xl text-blue-800">
-              {process.env.BRAND}
+              {process.env.BRAND || 'IK'}
             </Link>
           </div>
           <div className="flex h-16">

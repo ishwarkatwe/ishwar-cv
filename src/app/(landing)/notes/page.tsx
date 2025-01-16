@@ -58,7 +58,7 @@ function Notes() {
           placeholder="Search courses..."
           value={searchQuery}
           onChange={(e) => setSearchQuery(e.target.value)}
-          className="mb-4 p-2 border border-gray-300 rounded w-[50%]"
+          className="mb-4 p-2 border border-gray-300 rounded w-full md:w-[50%]"
         />
       </div>
 
