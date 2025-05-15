@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Github, ExternalLink, Mail, Phone, Linkedin } from "lucide-react";
+import { ExternalLink, Mail, Phone, Linkedin } from "lucide-react";
 
 const fadeInUp = {
   initial: { opacity: 0, y: 20 },
@@ -61,9 +61,7 @@ export default function ProjectsPage() {
                     <h2 className="text-2xl font-semibold mb-2">
                       {project.title}
                     </h2>
-                    <p className="text-foreground/80">
-                      {project.description}
-                    </p>
+                    <p className="text-foreground/80">{project.description}</p>
                     <div className="flex flex-wrap gap-2">
                       {project.technologies.map((tech, i) => (
                         <span

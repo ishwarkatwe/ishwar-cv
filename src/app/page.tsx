@@ -3,34 +3,34 @@
 import { motion } from "framer-motion";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Mail, Phone, Linkedin, Github, ArrowRight } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 
-const socialLinks = [
-  {
-    name: "LinkedIn",
-    icon: Linkedin,
-    href: "https://www.linkedin.com/in/ishwar-katwe-269aaa56/",
-    color: "text-blue-500",
-  },
-  {
-    name: "GitHub",
-    icon: Github,
-    href: "https://github.com/ishwarkatwe",
-    color: "text-gray-800 dark:text-gray-200",
-  },
-  {
-    name: "Email",
-    icon: Mail,
-    href: "mailto:ishwar.katwe0816@gmail.com",
-    color: "text-red-500",
-  },
-  {
-    name: "Phone",
-    icon: Phone,
-    href: "tel:+919632463245",
-    color: "text-green-500",
-  },
-];
+// const socialLinks = [
+//   {
+//     name: "LinkedIn",
+//     icon: Linkedin,
+//     href: "https://www.linkedin.com/in/ishwar-katwe-269aaa56/",
+//     color: "text-blue-500",
+//   },
+//   {
+//     name: "GitHub",
+//     icon: Github,
+//     href: "https://github.com/ishwarkatwe",
+//     color: "text-gray-800 dark:text-gray-200",
+//   },
+//   {
+//     name: "Email",
+//     icon: Mail,
+//     href: "mailto:ishwar.katwe0816@gmail.com",
+//     color: "text-red-500",
+//   },
+//   {
+//     name: "Phone",
+//     icon: Phone,
+//     href: "tel:+919632463245",
+//     color: "text-green-500",
+//   },
+// ];
 
 const skills = [
   {
@@ -73,38 +73,38 @@ const skills = [
   },
 ];
 
-const experience = [
-  {
-    role: "Principal Software Engineer",
-    company: "OneTrust",
-    period: "2021 - Present",
-    description: [],
-  },
-  {
-    role: "Senior Software Engineer",
-    company: "Tech Mahindra",
-    period: "2015 - 2021",
-    description: [],
-  },
-  {
-    role: "Senior Software Engineer",
-    company: "Molecular Collections Pvt Ltd",
-    period: "2013 - 2015",
-    description: [],
-  },
-  {
-    role: "Software Engineer",
-    company: "Atlantis Data Bureau Services",
-    period: "2011 - 2013",
-    description: [],
-  },
-  {
-    role: "Software Engineer",
-    company: "Chromosis Technologies Pvt Ltd",
-    period: "2009 - 2011",
-    description: [],
-  },
-];
+// const experience = [
+//   {
+//     role: "Principal Software Engineer",
+//     company: "OneTrust",
+//     period: "2021 - Present",
+//     description: [],
+//   },
+//   {
+//     role: "Senior Software Engineer",
+//     company: "Tech Mahindra",
+//     period: "2015 - 2021",
+//     description: [],
+//   },
+//   {
+//     role: "Senior Software Engineer",
+//     company: "Molecular Collections Pvt Ltd",
+//     period: "2013 - 2015",
+//     description: [],
+//   },
+//   {
+//     role: "Software Engineer",
+//     company: "Atlantis Data Bureau Services",
+//     period: "2011 - 2013",
+//     description: [],
+//   },
+//   {
+//     role: "Software Engineer",
+//     company: "Chromosis Technologies Pvt Ltd",
+//     period: "2009 - 2011",
+//     description: [],
+//   },
+// ];
 
 export default function HomePage() {
   return (
