@@ -52,9 +52,9 @@ export function Navbar() {
             </Link>
           ))}
           <ThemeToggle />
-          <Button variant="default" size="sm">
+          {/* <Button variant="default" size="sm">
             Resume
-          </Button>
+          </Button> */}
         </div>
 
         {/* Mobile Menu Button */}
@@ -87,9 +87,9 @@ export function Navbar() {
               {item.name}
             </Link>
           ))}
-          <Button variant="default" size="sm" className="w-full">
+          {/* <Button variant="default" size="sm" className="w-full">
             Resume
-          </Button>
+          </Button> */}
         </div>
       </motion.div>
     </motion.header>

@@ -52,7 +52,7 @@ export default function AboutPage() {
                   <span className="text-primary">•</span>
                   <div>
                     <h3 className="font-medium">Pat on Back Award 2021</h3>
-                    <p className="text-foreground/80">OneTrust</p>
+                    <p className="text-foreground/80">Tech Mahindra Pvt Ltd</p>
                   </div>
                 </li>
                 <li className="flex items-start gap-3">

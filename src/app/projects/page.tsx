@@ -1,39 +1,39 @@
-'use client';
+"use client";
 
-import { motion } from 'framer-motion';
-import { Card } from '@/components/ui/card';
-import { Button } from '@/components/ui/button';
-import { Github, ExternalLink, Mail, Phone, Linkedin } from 'lucide-react';
+import { motion } from "framer-motion";
+import { Card } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { Github, ExternalLink, Mail, Phone, Linkedin } from "lucide-react";
 
 const fadeInUp = {
   initial: { opacity: 0, y: 20 },
   animate: { opacity: 1, y: 0 },
-  transition: { duration: 0.5 }
+  transition: { duration: 0.5 },
 };
 
 const contactInfo = {
-  email: 'ishwar.katwe0816@gmail.com',
-  phone: '+919632463245',
-  linkedin: 'https://www.linkedin.com/in/ishwar-katwe-269aaa56/'
+  email: "ishwar.katwe0816@gmail.com",
+  phone: "+919632463245",
+  linkedin: "https://www.linkedin.com/in/ishwar-katwe-269aaa56/",
 };
 
 const projects = [
   {
-    title: 'Project One',
-    description: 'A full-stack web application built with React, Node.js, and MongoDB. Features include user authentication, real-time updates, and responsive design.',
-    period: '2023',
-    technologies: ['React', 'Node.js', 'MongoDB', 'Socket.io'],
-    github: 'https://github.com/yourusername/project-one',
-    demo: 'https://project-one-demo.com'
+    title: "Savji Kitchen",
+    description:
+      "A food delivery platform with features like order management, payment integration, and customer support.",
+    period: "2024",
+    technologies: ["React", "Next.js", "MongoDB", "AI"],
+    demo: "https://savjikitchen.com",
   },
   {
-    title: 'Project Two',
-    description: 'An e-commerce platform with features like product catalog, shopping cart, payment integration, and order management.',
-    period: '2022',
-    technologies: ['Next.js', 'TypeScript', 'PostgreSQL', 'Stripe'],
-    github: 'https://github.com/yourusername/project-two',
-    demo: 'https://project-two-demo.com'
-  }
+    title: "The Aimer",
+    description:
+      "The Aimer is a platform that helps you find the perfect tech.",
+    period: "2021",
+    technologies: ["React", "Next.js", "MongoDB", "AI"],
+    demo: "https://theaimer.in",
+  },
 ];
 
 export default function ProjectsPage() {
@@ -58,9 +58,13 @@ export default function ProjectsPage() {
                   transition={{ duration: 0.5, delay: index * 0.1 }}
                 >
                   <Card className="p-6 glass">
-                    <h2 className="text-2xl font-semibold mb-2">{project.title}</h2>
-                    <p className="text-foreground/80 mb-4">{project.description}</p>
-                    <div className="flex flex-wrap gap-2 mb-4">
+                    <h2 className="text-2xl font-semibold mb-2">
+                      {project.title}
+                    </h2>
+                    <p className="text-foreground/80">
+                      {project.description}
+                    </p>
+                    <div className="flex flex-wrap gap-2">
                       {project.technologies.map((tech, i) => (
                         <span
                           key={i}
@@ -71,18 +75,18 @@ export default function ProjectsPage() {
                       ))}
                     </div>
                     <div className="flex gap-4">
-                      <Button
+                      {/* <Button
                         variant="outline"
                         className="flex items-center gap-2"
-                        onClick={() => window.open(project.github, '_blank')}
+                        onClick={() => window.open(project.github, "_blank")}
                       >
                         <Github className="h-4 w-4" />
                         <span>GitHub</span>
-                      </Button>
+                      </Button> */}
                       <Button
                         variant="outline"
                         className="flex items-center gap-2"
-                        onClick={() => window.open(project.demo, '_blank')}
+                        onClick={() => window.open(project.demo, "_blank")}
                       >
                         <ExternalLink className="h-4 w-4" />
                         <span>Live Demo</span>
@@ -130,4 +134,4 @@ export default function ProjectsPage() {
       </motion.div>
     </div>
   );
-} 
+}
