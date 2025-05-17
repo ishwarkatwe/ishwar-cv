@@ -24,8 +24,8 @@ export default function AboutPage() {
         <Card className="p-6 mb-8 glass">
           <motion.div {...fadeInUp}>
             <p className="text-lg text-foreground/80 leading-relaxed mb-6">
-              I am a Principal Software Engineer with over 8 years of experience in building modern web applications. 
-              My expertise lies in JavaScript/TypeScript, React, Node.js, and cloud technologies. 
+              I am a Principal Software Engineer with over 10+ years of experience in building modern web applications. 
+              My expertise lies in JavaScript/TypeScript Angular, React, Node.js, and cloud technologies. 
               I love creating efficient, scalable, and user-friendly solutions.
             </p>
             <a
@@ -58,8 +58,8 @@ export default function AboutPage() {
                 <li className="flex items-start gap-3">
                   <span className="text-primary">•</span>
                   <div>
-                    <h3 className="font-medium">2nd Prize in State Level Technical Quiz</h3>
-                    <p className="text-foreground/80">KLEIT, Hubli</p>
+                    <h3 className="font-medium">Spot Award 2019</h3>
+                    <p className="text-foreground/80">Molecular Connections Pvt Ltd</p>
                   </div>
                 </li>
               </ul>

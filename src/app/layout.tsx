@@ -25,13 +25,11 @@ export default function RootLayout({
             <div className="fixed inset-0 bg-grid-pattern" />
             <div className="fixed inset-0 bg-gradient-to-b from-background/0 via-background/50 to-background" />
             <div className="fixed inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-primary/10 via-background to-background" />
-            
+
             {/* Content */}
             <div className="relative">
               <Navbar />
-              <main className="pt-16">
-                {children}
-              </main>
+              <main className="pt-16">{children}</main>
             </div>
           </div>
         </ThemeProvider>
